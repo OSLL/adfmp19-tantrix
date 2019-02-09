@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<instructions>
+    <instruction_entry id="1">
+        <title>@string/instruction_title_1</title>
+        <description>@string/instruction_description_1</description>
+    </instruction_entry>
+
+    <instruction_entry id="2">
+        <title>@string/instruction_title_2</title>
+        <description>@string/instruction_description_2</description>
+    </instruction_entry>
+
+    <instruction_entry id="3">
+        <title>@string/instruction_title_3</title>
+        <description>@string/instruction_description_3</description>
+    </instruction_entry>
+
+    <instruction_entry id="4">
+        <title>@string/instruction_title_4</title>
+        <description>@string/instruction_description_4</description>
+    </instruction_entry>
+
+    <instruction_entry id="5">
+        <title>@string/instruction_title_5</title>
+        <description>@string/instruction_description_5</description>
+    </instruction_entry>
+
+    <instruction_entry id="6">
+        <title>@string/instruction_title_6</title>
+        <description>@string/instruction_description_6</description>
+    </instruction_entry>
+
+    <instruction_entry id="7">
+        <title>@string/instruction_title_7</title>
+        <description>@string/instruction_description_7</description>
+    </instruction_entry>
+
+    <instruction_entry id="8">
+        <title>@string/instruction_title_8</title>
+        <description>@string/instruction_description_8</description>
+    </instruction_entry>
+</instructions>

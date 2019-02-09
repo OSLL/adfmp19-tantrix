@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<instruction_entry id="1">
+    <title>@string/instruction_title_1</title>
+    <description>@string/instruction_description_1</description>
+</instruction_entry>

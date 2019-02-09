@@ -28,4 +28,11 @@
     <string name="four_players">Four players</string>
     <string name="choose_colors">Choose colors</string>
     <string name="title_activity_game">GameActivity</string>
+
+    <string name="player_1_color">Player\'s 1 color</string>
+    <string name="player_2_color">Player\'s 2 color</string>
+    <string name="player_3_color">Player\'s 3 color</string>
+    <string name="player_4_color">Player\'s 4 color</string>
+
+    <string name="error_message_unique_colors">All players should have unique colors</string>
 </resources>

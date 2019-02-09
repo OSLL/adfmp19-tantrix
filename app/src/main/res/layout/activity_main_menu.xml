@@ -19,40 +19,55 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="68dp"
+            android:layout_marginBottom="8dp"
             android:text="@string/welcome_title"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/mainTopGuideline"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/gameModButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="219dp"
             android:text="@string/against_bots"
-            app:layout_constraintEnd_toEndOf="@+id/startGameButton"
-            app:layout_constraintStart_toStartOf="@+id/startGameButton"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainTopGuideline" />
 
         <Button
             android:id="@+id/instructionsButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="37dp"
             android:text="@string/instructions"
-            app:layout_constraintStart_toStartOf="@+id/gameModButton"
-            app:layout_constraintTop_toBottomOf="@+id/gameModButton" />
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gameModButton"
+            app:layout_constraintBottom_toTopOf="@+id/startGameButton"/>
 
         <Button
             android:id="@+id/startGameButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="206dp"
             android:text="@string/startGame"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/mainBottomGuideline" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/mainTopGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.3"/>
+
+        <android.support.constraint.Guideline
+            android:id="@+id/mainBottomGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.7"/>
 
         <Button
             android:id="@+id/settingsButton"
@@ -65,42 +80,57 @@
             app:layout_constraintEnd_toEndOf="parent" />
     </android.support.constraint.ConstraintLayout>
 
+    <!-- Layout with game mode picker -->
     <android.support.constraint.ConstraintLayout
         android:id="@+id/gameModeLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="78dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:visibility="gone"
+        android:background="#80000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
             android:id="@+id/solitaireButton"
+            android:text="@string/solitaire"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="178dp"
-            android:text="@string/solitaire"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@id/gameModTopGuideline"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent" />
 
         <Button
             android:id="@+id/withBotsButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="65dp"
             android:text="@string/against_bots"
-            app:layout_constraintStart_toStartOf="@+id/solitaireButton"
-            app:layout_constraintTop_toBottomOf="@+id/solitaireButton" />
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/solitaireButton"
+            app:layout_constraintBottom_toTopOf="@+id/hotseatButton" />
 
         <Button
             android:id="@+id/hotseatButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="61dp"
             android:text="@string/hotseat"
-            app:layout_constraintStart_toStartOf="@+id/withBotsButton"
-            app:layout_constraintTop_toBottomOf="@+id/withBotsButton" />
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/gameModBottomGuideline" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/gameModTopGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.3"/>
+
+        <android.support.constraint.Guideline
+            android:id="@+id/gameModBottomGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.7"/>
     </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>

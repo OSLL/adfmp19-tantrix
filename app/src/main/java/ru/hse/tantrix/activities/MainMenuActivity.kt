@@ -25,9 +25,9 @@ class MainMenuActivity : AppCompatActivity() {
             gameModeLayout.visibility = View.VISIBLE
             mainMenuLayout.disable()
         }
-        solitaireButton.setOnClickListener { chooseMode(GameMode.Solitaire) }
-        withBotsButton.setOnClickListener { chooseMode(GameMode.WithBots) }
-        hotseatButton.setOnClickListener { chooseMode(GameMode.Hotseat) }
+
+        configureGameModButtons()
+
         instructionsButton.setOnClickListener {
             startActivity(Intent(this, InstructionsActivity::class.java))
         }
@@ -43,6 +43,16 @@ class MainMenuActivity : AppCompatActivity() {
                 }
             }
         }
+
+        settingsButton.setOnClickListener {
+            startActivity(Intent(this, SettingsActivity::class.java))
+        }
+    }
+
+    private fun configureGameModButtons() {
+        englishButton.setOnClickListener { chooseMode(GameMode.Solitaire) }
+        withBotsButton.setOnClickListener { chooseMode(GameMode.WithBots) }
+        hotseatButton.setOnClickListener { chooseMode(GameMode.Hotseat) }
     }
 
     private fun chooseMode(gameMode: GameMode) {

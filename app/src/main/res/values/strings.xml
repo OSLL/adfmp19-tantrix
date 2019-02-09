@@ -35,4 +35,9 @@
     <string name="player_4_color">Player\'s 4 color</string>
 
     <string name="error_message_unique_colors">All players should have unique colors</string>
+    <string name="color_skin">Color skin</string>
+    <string name="choose_language">Choose language</string>
+    <string name="hints">Hints</string>
+    <string name="english">English</string>
+    <string name="russian">Russian</string>
 </resources>

@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.MainMenuActivity">
+    tools:context=".activities.SettingsActivity">
 
     <android.support.constraint.ConstraintLayout
-        android:id="@+id/mainMenuLayout"
+        android:id="@+id/settingsMenuLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -20,40 +20,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:text="@string/welcome_title"
+            android:text="@string/settings"
             app:layout_constraintBottom_toTopOf="@+id/mainTopGuideline"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/gameModButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/against_bots"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mainTopGuideline" />
-
-        <Button
-            android:id="@+id/instructionsButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/instructions"
-            app:layout_constraintHorizontal_bias="0.501"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/gameModButton"
-            app:layout_constraintBottom_toTopOf="@+id/startGameButton"/>
-
-        <Button
-            android:id="@+id/startGameButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/startGame"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toBottomOf="@+id/mainBottomGuideline" />
 
         <android.support.constraint.Guideline
             android:id="@+id/mainTopGuideline"
@@ -61,6 +32,35 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.3"/>
+
+        <Button
+            android:id="@+id/languageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/choose_language"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainTopGuideline" />
+
+        <Button
+            android:id="@+id/colorsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/color_skin"
+            android:enabled="false"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/languageButton"
+            app:layout_constraintBottom_toTopOf="@+id/hintsSwitch"/>
+
+        <Switch
+            android:id="@+id/hintsSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hints"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/mainBottomGuideline"/>
 
         <android.support.constraint.Guideline
             android:id="@+id/mainBottomGuideline"
@@ -70,19 +70,20 @@
             app:layout_constraintGuide_percent="0.7"/>
 
         <Button
-            android:id="@+id/settingsButton"
+            android:id="@+id/backButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="17dp"
             android:layout_marginBottom="17dp"
-            android:text="@string/settings"
+            android:text="@string/return_back"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
+
     </android.support.constraint.ConstraintLayout>
 
     <!-- Layout with game mode picker -->
     <android.support.constraint.ConstraintLayout
-        android:id="@+id/gameModeLayout"
+        android:id="@+id/languageLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone"
@@ -91,40 +92,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/englishButton"
-            android:text="@string/solitaire"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="@id/languageTopGuideline"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent" />
-
-        <Button
-            android:id="@+id/withBotsButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/against_bots"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/englishButton"
-            app:layout_constraintBottom_toTopOf="@+id/hotseatButton" />
-
-        <Button
-            android:id="@+id/hotseatButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/hotseat"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toBottomOf="@id/languageBottomGuideline" />
-
         <android.support.constraint.Guideline
             android:id="@+id/languageTopGuideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.3"/>
+
+        <Button
+            android:id="@+id/englishButton"
+            android:text="@string/english"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/languageTopGuideline"
+            app:layout_constraintBottom_toTopOf="@id/russianButton"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <Button
+            android:id="@+id/russianButton"
+            android:text="@string/russian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            app:layout_constraintTop_toBottomOf="@id/englishButton"
+            app:layout_constraintBottom_toBottomOf="@id/languageBottomGuideline"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent" />
 
         <android.support.constraint.Guideline
             android:id="@+id/languageBottomGuideline"

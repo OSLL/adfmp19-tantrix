@@ -1,8 +1,11 @@
 package ru.hse.tantrix.util
 
+import android.os.BadParcelableException
+import android.os.Parcel
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
+import java.io.Serializable
 
 fun ViewGroup.disable() = setEnabledForGroup(this, false)
 
@@ -34,6 +37,16 @@ private class ViewIterator(private val group: ViewGroup) : Iterator<View> {
     override fun next(): View = group.getChildAt(index++)
 }
 
-inline fun <reified T> log(t: T) {
-    Log.d("DEBUG", t.toString())
+inline fun <reified T> Any?.safeAs(): T? = this as? T
+
+inline fun <reified T : Serializable> Parcel.readEnum(): T? = readSerializable() as? T
+
+fun failWithParcel(field: String): Nothing {
+    val message = "Missing field: $field"
+    Log.e(LogTags.ERROR, message)
+    throw BadParcelableException(message)
+}
+
+fun emptyBranch(): Nothing {
+    error("We can not be here")
 }

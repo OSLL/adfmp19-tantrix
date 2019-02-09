@@ -1,49 +1,33 @@
 package ru.hse.tantrix.model
 
-import android.os.BadParcelableException
 import android.os.Parcel
 import android.os.Parcelable
 import android.util.Log
 import org.xml.sax.Attributes
 import org.xml.sax.SAXException
 import org.xml.sax.helpers.DefaultHandler
-import ru.hse.tantrix.util.ERROR
+import ru.hse.tantrix.util.LogTags.ERROR
+import ru.hse.tantrix.util.failWithParcel
 import java.io.IOException
 import java.io.InputStream
 import javax.xml.parsers.SAXParserFactory
 
-class InstructionEntry : Parcelable {
+data class InstructionEntry(
+    val id: Int,
+    val title: String,
+    val description: String
+) : Parcelable {
     companion object {
         @JvmField
         val CREATOR: Parcelable.Creator<InstructionEntry> = InstructionEntryCreator()
 
         val DEFAULT_ENTRY = InstructionEntry()
 
-        private const val DEFAULT_ID = -1;
+        private const val DEFAULT_ID = -1
         private const val DEFAULT_TEXT = "<ERROR>"
     }
 
-    val id: Int
-    val title: String
-    val description: String
-
-    constructor(id: Int, title: String, description: String) {
-        this.id = id
-        this.title = title
-        this.description = description
-    }
-
     private constructor() : this(DEFAULT_ID, DEFAULT_TEXT, DEFAULT_TEXT)
-
-    private constructor(parcel: Parcel) {
-        id = parcel.readInt()
-        title = parcel.readString() ?: throw BadParcelableException("Missing filed: title")
-        description = parcel.readString() ?: throw BadParcelableException("Missing filed: title")
-    }
-
-    operator fun component1(): Int = id
-    operator fun component2(): String = title
-    operator fun component3(): String = description
 
     override fun writeToParcel(dest: Parcel?, flags: Int) {
         dest?.apply {
@@ -56,8 +40,12 @@ class InstructionEntry : Parcelable {
     override fun describeContents(): Int = 0
 
     private class InstructionEntryCreator : Parcelable.Creator<InstructionEntry> {
-        override fun createFromParcel(source: Parcel): InstructionEntry {
-            return InstructionEntry(source)
+        override fun createFromParcel(parcel: Parcel): InstructionEntry {
+            val id = parcel.readInt()
+            val title = parcel.readString() ?: failWithParcel("title")
+            val description = parcel.readString() ?: failWithParcel("description")
+
+            return InstructionEntry(id, title, description)
         }
 
         override fun newArray(size: Int): Array<InstructionEntry> {

@@ -11,7 +11,8 @@ import kotlinx.android.synthetic.main.activity_instructions.*
 import ru.hse.tantrix.R
 import ru.hse.tantrix.model.InstructionEntry
 import ru.hse.tantrix.model.SaxInstructionsParser
-import ru.hse.tantrix.util.ERROR
+import ru.hse.tantrix.util.ExtraKeys
+import ru.hse.tantrix.util.LogTags.ERROR
 
 class InstructionsActivity : AppCompatActivity() {
 
@@ -43,7 +44,7 @@ class InstructionsActivity : AppCompatActivity() {
 
                 setOnClickListener {
                     val intent = Intent(this@InstructionsActivity, InstructionsDetailsActivity::class.java).apply {
-                        putExtra(InstructionsDetailsActivity.INSTRUCTION_ENTRY_EXTRA_KEY, instruction)
+                        putExtra(ExtraKeys.INSTRUCTION_ENTRY, instruction)
                     }
                     startActivity(intent)
                 }

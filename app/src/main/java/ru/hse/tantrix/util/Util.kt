@@ -50,3 +50,5 @@ fun failWithParcel(field: String): Nothing {
 fun emptyBranch(): Nothing {
     error("We can not be here")
 }
+
+fun Float.normalize(): Float = (this * 100).toInt().toFloat() / 100

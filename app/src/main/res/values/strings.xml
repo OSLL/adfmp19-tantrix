@@ -40,4 +40,7 @@
     <string name="hints">Hints</string>
     <string name="english">English</string>
     <string name="russian">Russian</string>
+    <string name="pause">Pause</string>
+    <string name="exit_game">Exit game</string>
+    <string name="resume">Resume</string>
 </resources>

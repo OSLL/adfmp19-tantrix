@@ -10,10 +10,13 @@
         android:id="@+id/mainMenuLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <TextView
             android:id="@+id/titleView"
@@ -30,44 +33,51 @@
             android:id="@+id/gameModButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:text="@string/against_bots"
+            app:layout_constraintBottom_toTopOf="@+id/instructionsButton"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mainTopGuideline" />
+            app:layout_constraintTop_toTopOf="@+id/mainTopGuideline"
+            app:layout_constraintVertical_chainStyle="spread_inside" />
 
         <Button
             android:id="@+id/instructionsButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/instructions"
-            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintBottom_toTopOf="@+id/startGameButton"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/gameModButton"
-            app:layout_constraintBottom_toTopOf="@+id/startGameButton"/>
+            app:layout_constraintTop_toBottomOf="@+id/gameModButton" />
 
         <Button
             android:id="@+id/startGameButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:text="@string/startGame"
+            app:layout_constraintBottom_toTopOf="@+id/mainBottomGuideline"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toBottomOf="@+id/mainBottomGuideline" />
+            app:layout_constraintTop_toBottomOf="@+id/instructionsButton" />
 
         <android.support.constraint.Guideline
             android:id="@+id/mainTopGuideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.3"/>
+            app:layout_constraintGuide_percent="0.3" />
 
         <android.support.constraint.Guideline
             android:id="@+id/mainBottomGuideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.7"/>
+            app:layout_constraintGuide_percent="0.7" />
 
         <Button
             android:id="@+id/settingsButton"
@@ -85,52 +95,60 @@
         android:id="@+id/gameModeLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
         android:background="#80000000"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
             android:id="@+id/englishButton"
-            android:text="@string/solitaire"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="@id/languageTopGuideline"
+            android:layout_marginTop="8dp"
+            android:text="@string/solitaire"
+            app:layout_constraintBottom_toTopOf="@+id/withBotsButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/languageTopGuideline"
+            app:layout_constraintVertical_chainStyle="spread_inside" />
 
         <Button
             android:id="@+id/withBotsButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/against_bots"
+            app:layout_constraintBottom_toTopOf="@+id/hotseatButton"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/englishButton"
-            app:layout_constraintBottom_toTopOf="@+id/hotseatButton" />
+            app:layout_constraintTop_toBottomOf="@+id/englishButton" />
 
         <Button
             android:id="@+id/hotseatButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:text="@string/hotseat"
+            app:layout_constraintBottom_toTopOf="@+id/languageBottomGuideline"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toBottomOf="@id/languageBottomGuideline" />
+            app:layout_constraintTop_toBottomOf="@+id/withBotsButton" />
 
         <android.support.constraint.Guideline
             android:id="@+id/languageTopGuideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.3"/>
+            app:layout_constraintGuide_percent="0.3" />
 
         <android.support.constraint.Guideline
             android:id="@+id/languageBottomGuideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.7"/>
+            app:layout_constraintGuide_percent="0.7" />
     </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>

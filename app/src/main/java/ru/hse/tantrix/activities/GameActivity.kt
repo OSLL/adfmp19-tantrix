@@ -1,5 +1,7 @@
 package ru.hse.tantrix.activities
 
+import android.content.ClipData
+import android.content.ClipDescription
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -30,6 +32,17 @@ class GameActivity : AppCompatActivity() {
 
         configureButtons()
         configureGameFieldGestures()
+        configureTilePicker()
+    }
+
+    private fun configureTilePicker() {
+        mainTile.setOnLongClickListener {
+            val tag = it.tag as? CharSequence
+            val item = ClipData.Item(tag)
+            val dragData = ClipData(tag, arrayOf(ClipDescription.MIMETYPE_TEXT_PLAIN), item)
+            val myShadow = View.DragShadowBuilder(it)
+            it.startDragAndDrop(dragData, myShadow, null, 0)
+        }
     }
 
     private fun configureButtons() {

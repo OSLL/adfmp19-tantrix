@@ -16,10 +16,7 @@
         android:layout_height="wrap_content"
         android:elevation="3px"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/tilePickerLayout"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintLeft_toLeftOf="parent">
 
         <TableRow
             android:layout_width="match_parent"
@@ -69,22 +66,6 @@
 
     </TableLayout>
 
-    <FrameLayout
-        android:id="@+id/tilePickerLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:elevation="1px"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/tilesLeftView"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/colorPickerLayout">
-        <!-- TODO -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tile picker" />
-    </FrameLayout>
-
     <TextView
         android:id="@+id/tilesLeftView"
         android:layout_width="wrap_content"
@@ -93,8 +74,7 @@
         android:elevation="1px"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/tilePickerLayout" />
+        />
 
 
     <!-- __________________________ Upper side __________________________ -->
@@ -145,6 +125,50 @@
         android:elevation="1px"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/tilePickerLayout"
+        android:layout_width="289dp"
+        android:layout_height="135dp"
+        android:elevation="1px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tilesLeftView">
+
+        <View
+            android:id="@+id/leftTile"
+            android:layout_width="@dimen/tileSize"
+            android:layout_height="@dimen/tileSize"
+            android:background="#1D83DC"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/rightTile"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+        <View
+            android:id="@+id/rightTile"
+            android:layout_width="@dimen/tileSize"
+            android:layout_height="@dimen/tileSize"
+            android:background="#1D83DC"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/leftTile"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+        <View
+            android:id="@+id/mainTile"
+            android:layout_width="@dimen/tileSize"
+            android:layout_height="@dimen/tileSize"
+            android:background="#1D83DC"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="32dp"
+            app:layout_constraintStart_toEndOf="@+id/leftTile"
+            app:layout_constraintEnd_toStartOf="@+id/rightTile"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.49"
+            app:layout_constraintVertical_bias="0.0"/>
+    </android.support.constraint.ConstraintLayout>
 
     <!-- __________________________ Center __________________________ -->
 

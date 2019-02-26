@@ -33,12 +33,4 @@ data class PlayerInfo(val playerType: PlayerType, val color: TileColor, val turn
     }
 
     override fun describeContents(): Int = 0
-
-    class PlayerInfoBuilder {
-        val playerType: PlayerType = PlayerType.DEFAULT
-        var color: TileColor = TileColor.DEFAULT
-        var turn: TurnSequence = TurnSequence.DEFAULT
-
-        fun build(): PlayerInfo = PlayerInfo(playerType, color, turn)
-    }
 }

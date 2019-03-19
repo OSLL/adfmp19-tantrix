@@ -79,20 +79,80 @@
 
     <!-- __________________________ Upper side __________________________ -->
 
-    <LinearLayout
-        android:id="@+id/enemiesLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:elevation="1px"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
+    <TableRow
+            android:id="@+id/enemiesItemsLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TODO: Here will be enemies" />
-    </LinearLayout>
+            android:orientation="horizontal"
+            android:elevation="1px"
+            android:visibility="visible"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <Button
+                    android:text="@string/enemy1"
+                    android:layout_width="46dp"
+                    android:layout_height="wrap_content" android:id="@+id/enemyIcon1"
+                    android:background="@drawable/enemy_background"/>
+            <Button
+                    android:text="@string/enemy2"
+                    android:layout_width="46dp"
+                    android:layout_height="wrap_content" android:id="@+id/enemyIcon2"
+                    android:background="@drawable/enemy_background"/>
+            <Button
+                    android:text="@string/enemy3"
+                    android:layout_width="46dp"
+                    android:layout_height="wrap_content" android:id="@+id/enemyIcon3"
+                    android:background="@drawable/enemy_background"/>
+     </TableRow>
+
+    <TableRow
+            android:id="@+id/enemiesTilesLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:elevation="1px"
+            android:visibility="visible"
+            app:layout_constraintTop_toBottomOf="@id/enemiesItemsLayout"
+            app:layout_constraintLeft_toLeftOf="parent">
+
+        <View
+                android:id="@+id/enemyTile1"
+                android:layout_width="@dimen/enemyTileSize"
+                android:layout_height="@dimen/enemyTileSize"
+                android:background="@color/lightGray"
+        />
+        <View
+                android:id="@+id/enemyTile2"
+                android:layout_width="@dimen/enemyTileSize"
+                android:layout_height="@dimen/enemyTileSize"
+                android:background="@color/lightGray"
+        />
+        <View
+                android:id="@+id/enemyTile3"
+                android:layout_width="@dimen/enemyTileSize"
+                android:layout_height="@dimen/enemyTileSize"
+                android:background="@color/lightGray"
+        />
+        <View
+                android:id="@+id/enemyTile4"
+                android:layout_width="@dimen/enemyTileSize"
+                android:layout_height="@dimen/enemyTileSize"
+                android:background="@color/lightGray"
+        />
+        <View
+                android:id="@+id/enemyTile5"
+                android:layout_width="@dimen/enemyTileSize"
+                android:layout_height="@dimen/enemyTileSize"
+                android:background="@color/lightGray"
+        />
+        <View
+                android:id="@+id/enemyTile6"
+                android:layout_width="@dimen/enemyTileSize"
+                android:layout_height="@dimen/enemyTileSize"
+                android:background="@color/lightGray"
+        />
+    </TableRow>
 
     <LinearLayout
         android:id="@+id/infoLayout"
@@ -100,7 +160,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:elevation="1px"
-        app:layout_constraintLeft_toRightOf="@id/enemiesLayout"
+        app:layout_constraintLeft_toRightOf="@id/enemiesItemsLayout"
         app:layout_constraintRight_toLeftOf="@id/pauseButton"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -113,6 +173,8 @@
             android:id="@+id/timeLeftView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@id/enemiesItemsLayout"
+            app:layout_constraintRight_toLeftOf="@id/pauseButton"
             android:text="Infinity" />
     </LinearLayout>
 

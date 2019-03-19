@@ -43,4 +43,7 @@
     <string name="pause">Pause</string>
     <string name="exit_game">Exit game</string>
     <string name="resume">Resume</string>
+    <string name="enemy1">e1</string>
+    <string name="enemy2">e2</string>
+    <string name="enemy3">e3</string>
 </resources>

@@ -1,4 +1,5 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="tileSize">60dp</dimen>
+    <dimen name="enemyTileSize">50dp</dimen>
 </resources>

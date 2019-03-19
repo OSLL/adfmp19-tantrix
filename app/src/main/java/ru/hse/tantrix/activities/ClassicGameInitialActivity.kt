@@ -29,7 +29,7 @@ class ClassicGameInitialActivity : AppCompatActivity() {
         }
     }
 
-    private val playersColors: MutableList<TileColor> = TileColor.values().toMutableList()
+    private val playersColors: MutableList<LineColor> = LineColor.values().toMutableList()
     private lateinit var colorPickers: List<View>
     private lateinit var colorSpinners: List<Spinner>
 
@@ -122,14 +122,14 @@ class ClassicGameInitialActivity : AppCompatActivity() {
     }
 
     private fun Spinner.configureColorSpinner(playerNumber: Int) {
-        adapter = ru.hse.tantrix.adapters.EnumAdapter(this@ClassicGameInitialActivity, android.R.layout.simple_spinner_item, ru.hse.tantrix.model.enums.TileColor.values()).apply {
+        adapter = ru.hse.tantrix.adapters.EnumAdapter(this@ClassicGameInitialActivity, android.R.layout.simple_spinner_item, ru.hse.tantrix.model.enums.LineColor.values()).apply {
             setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         }
         onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {}
 
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                playersColors[playerNumber] = TileColor.valueOf(position)!!
+                playersColors[playerNumber] = LineColor.valueOf(position)!!
             }
         }
     }
@@ -139,7 +139,7 @@ class ClassicGameInitialActivity : AppCompatActivity() {
 
     // used for mode with bots
     private fun getBotsInfos(): List<PlayerInfo> {
-        val freeColors = mutableSetOf(*TileColor.values())
+        val freeColors = mutableSetOf(*LineColor.values())
         freeColors.remove(playersColors[0])
         val bots = mutableListOf<PlayerInfo>()
         for (number in 2..numberOfPlayers.value) {

@@ -13,6 +13,7 @@ import android.view.ScaleGestureDetector
 import android.view.View
 import kotlinx.android.synthetic.main.activity_game.*
 import ru.hse.tantrix.R
+import ru.hse.tantrix.drawable.HexagonDrawable
 import ru.hse.tantrix.model.GameInfo
 import ru.hse.tantrix.model.PlayerInfo
 import ru.hse.tantrix.model.enums.ColorMode
@@ -27,6 +28,7 @@ class GameActivity : AppCompatActivity() {
     private lateinit var fieldScaleGestureDetector: ScaleGestureDetector
     private lateinit var tilePickerGestureDetector: GestureDetectorCompat
     private var gameFieldScaleFactor = 1.0f
+    private var enemyTiles : Int = -1
 
     private var colorMode: ColorMode by Delegates.observable(ColorMode.Mode1) { _, _, newValue ->
         colorPickerButton.text = colorMode.name
@@ -41,6 +43,7 @@ class GameActivity : AppCompatActivity() {
         configureButtons()
         configureGameFieldGestures()
         configureTilePicker()
+        configureEnemiesLayout()
     }
 
     private fun configureTilePicker() {
@@ -51,6 +54,12 @@ class GameActivity : AppCompatActivity() {
             val myShadow = View.DragShadowBuilder(it)
             it.startDragAndDrop(dragData, myShadow, null, 0)
         }
+        val tmpTile = HexagonDrawable(R.color.gray)
+        rightTile.background = tmpTile
+        leftTile.background = tmpTile
+        mainTile.background = HexagonDrawable(R.color.red)
+
+
         tilePickerGestureDetector = GestureDetectorCompat(this, TilePickerGestureListener(tilePickerLayout))
         tilePickerLayout.setOnTouchListener { _, event ->
             tilePickerGestureDetector.onTouchEvent(event)
@@ -86,7 +95,26 @@ class GameActivity : AppCompatActivity() {
             startActivity(Intent(this, PauseActivity::class.java))
         }
 
-        // TODO: Enemies
+    }
+
+    private fun configureEnemiesLayout() {
+        fun setEnemyTilesVisible(enemy : Int) {
+            enemiesTilesLayout.visibility = if (enemyTiles == -1) View.VISIBLE else View.INVISIBLE
+            enemyTiles = if (enemyTiles == -1) enemyTiles else -1
+        }
+
+        // TODO : real tiles
+        val tmpTile = HexagonDrawable(R.color.gray)
+        enemyTile1.background = tmpTile
+        enemyTile2.background = tmpTile
+        enemyTile3.background = tmpTile
+        enemyTile4.background = tmpTile
+        enemyTile5.background = tmpTile
+        enemyTile6.background = tmpTile
+
+        enemyIcon1.setOnClickListener {setEnemyTilesVisible(1)}
+        enemyIcon2.setOnClickListener {setEnemyTilesVisible(2)}
+        enemyIcon3.setOnClickListener {setEnemyTilesVisible(3)}
     }
 
     private fun configureGameFieldGestures() {
@@ -193,7 +221,7 @@ class Tile {
 // TODO
 class Player(tiles: MutableList<Tile>, val playerInfo: PlayerInfo) {
     init {
-        assert(tiles.size == 6)
+        assert(tiles.size <= 6)
     }
 
     val tiles = tiles.mutableCircleIterator()

@@ -130,7 +130,7 @@ class GameActivity : AppCompatActivity() {
     }
 }
 
-open class CircleIterator<T>(private val list: List<T>, protected var index: Int = 0) {
+open class CircleIterator<T>(private val list: List<T>, protected var index: Int = 0) : Iterable<T> {
     fun next(): T {
         if (index++ >= list.size) index = 0
         return list[index]
@@ -144,6 +144,8 @@ open class CircleIterator<T>(private val list: List<T>, protected var index: Int
     fun current(): T {
         return list[index]
     }
+
+    override fun iterator(): Iterator<T> = list.iterator()
 }
 
 class MutableCircleIterator<T>(private val list: MutableList<T>, index: Int = 0) : CircleIterator<T>(list, index) {

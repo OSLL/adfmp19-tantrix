@@ -10,9 +10,6 @@
 
     <!-- __________________________ Bottom side __________________________ -->
 
-    <View
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/tantrixView"/>
     <TableLayout
         android:id="@+id/colorPickerLayout"
         android:layout_width="wrap_content"
@@ -248,13 +245,14 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <!-- TODO: remove -->
-        <TextView
-            android:id="@+id/debugView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="This is a game map" />
+        <!-- TODO: tmp, change layout -->
+        <View
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/tantrixView">
+        </View>
+
     </FrameLayout>
 
     <View

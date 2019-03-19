@@ -40,6 +40,9 @@ class GameActivity : AppCompatActivity() {
 
         val gameInfo = intent.getParcelableExtra<GameInfo>(ExtraKeys.GAME_INFO)
 
+        // TODO : this is tmp
+        tantrixView.background = HexagonDrawable(R.color.green)
+
         configureButtons()
         configureGameFieldGestures()
         configureTilePicker()
